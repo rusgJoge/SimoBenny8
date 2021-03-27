@@ -1,10 +1,14 @@
 package example;
 
+import java.util.logging.Logger;
+
 public class HelloWorld {
-
-	public static void main(String[] args) {
-		System.out.println("Hello World!!");
-
+	
+	 private static final Logger logger1 = Logger.getLogger(HelloWorld.class.getName());
+	 
+	 public static void main(String[] args) {
+		
+		 logger1.info("hello world!");
 
 	}
 

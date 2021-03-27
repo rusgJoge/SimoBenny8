@@ -1,0 +1,4 @@
+1) Creo repository su github
+2) Uso svn e creo working dir
+3) uso la cartella trunck creata da svn come workspace di eclipse
+4) faccio add e poi commit su svn
