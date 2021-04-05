@@ -23,7 +23,7 @@ public class IdCommit {
             while ((s = br.readLine()) != null) {
             	if (s.toLowerCase().indexOf(keyword.toLowerCase()) != -1 ) {
             		logger.info("Keyword matched the string");
-            		String words[] = s.split(" ");
+            		String[] words = s.split(" ");
             		String id = words[1];
             		logger.log(Level.INFO, "Commit id: {0}", id);
             	}
@@ -31,7 +31,9 @@ public class IdCommit {
             p.waitFor();
             p.destroy();
             
-        }catch (Exception e) {}
+        }catch (Exception e) {
+        	logger.log(Level.WARNING,"Exception found");
+        }
         
     }
     
