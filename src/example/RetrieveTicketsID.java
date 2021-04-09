@@ -68,7 +68,6 @@ public class RetrieveTicketsID {
             //Iterate through each bug
             String key = issues.getJSONObject(i%1000).get("key").toString();
             al.add(key);
-            System.out.println("aggiunta key");
          }  
       } while (i < total);
       
@@ -98,7 +97,7 @@ public class RetrieveTicketsID {
             System.out.println(key);
          }  
       } while (i < total);
-      return;
+     
    }
 
  

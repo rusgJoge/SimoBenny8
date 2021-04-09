@@ -16,40 +16,43 @@ public class IdCommit {
 		
 		String s;
         Process p;
-        String keyword = "commit";
         String outname = fileName + "TotalCommit.txt";
-        FileWriter result = null;
+        //FileWriter result = null;
         //String project = "C:\\Users\\Simone Benedetti\\Documents\\Programmazione JAVA\\Bahir";
         //String wordToSearch = "BAHIR-49";
         
-        try {
-            p = Runtime.getRuntime().exec("cmd /c cd "+project+"&& git log --grep="+wordToSearch+" --date=iso-strict --name-status --stat HEAD --abbrev-commit");
-            BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            if(i != 0) {
-            	result = new FileWriter(outname,true);
-            }else {
-            	result = new FileWriter(outname);
-            }
-            while ((s = br.readLine()) != null) {
-            	result.write(s);
-            	result.append("\n");
-            }	
-            p.waitFor();
-            p.destroy();
+        	
+         p = Runtime.getRuntime().exec("cmd /c cd "+project+"&& git log --grep="+wordToSearch+" --date=iso-strict --name-status --stat HEAD --abbrev-commit");
+         BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+         if(i != 0) {
+        	 try(FileWriter result = new FileWriter(outname,true)){
+            	
+            	while ((s = br.readLine()) != null) {
+                	result.write(s);
+                	result.append("\n");
+                }	
+                p.waitFor();
+                p.destroy();
+                
+        	 }catch (Exception e) {
+            	logger.log(Level.WARNING,"Exception found");
+        	 }
+         }else {
+        	 try(FileWriter result = new FileWriter(outname)){
+             	
+             	while ((s = br.readLine()) != null) {
+                 	result.write(s);
+                 	result.append("\n");
+                 }	
+                 p.waitFor();
+                 p.destroy();
+                 
+             }catch (Exception e) {
+             	logger.log(Level.WARNING,"Exception found");
+             }
+         }
+         
             
-        }catch (Exception e) {
-        	logger.log(Level.WARNING,"Exception found");
-        }finally {
-            try {
-	               result.flush();
-	               result.close();
-	               //System.out.println("file chiuso");
-	            } catch (IOException e) {
-	               System.out.println("Error while flushing/closing fileWriter !!!");
-	               e.printStackTrace();
-	            }
-        }
-        return;
         
     }
 		

@@ -7,7 +7,7 @@ import org.json.JSONException;
 
 public class ProcessControlChart {
 	
-	private IdCommit ic;
+	
 	private static ArrayList<String> id;
 	
 	public static void main(String[] args) {
