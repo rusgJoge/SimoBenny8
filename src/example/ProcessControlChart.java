@@ -18,7 +18,7 @@ public class ProcessControlChart {
 		String project3 = "C:\\Users\\Simone Benedetti\\Documents\\Programmazione JAVA\\Flink";
 		
 		try {
-			id = RetrieveTicketsID.getIdCommit(progName);
+			id = (ArrayList<String>) RetrieveTicketsID.getIdCommit(progName);
 		} catch (JSONException e) {
 			
 			e.printStackTrace();

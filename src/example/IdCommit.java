@@ -11,15 +11,13 @@ import java.util.logging.Logger;
 public class IdCommit {
 	
 	private static final Logger logger = Logger.getLogger(IdCommit.class.getName());
+	private static final String strErr = "Exception found";
 	
 	public static void commitString(String wordToSearch, String project,String fileName, int i) throws IOException {
 		
 		String s;
         Process p;
         String outname = fileName + "TotalCommit.txt";
-        //FileWriter result = null;
-        //String project = "C:\\Users\\Simone Benedetti\\Documents\\Programmazione JAVA\\Bahir";
-        //String wordToSearch = "BAHIR-49";
         
         	
          p = Runtime.getRuntime().exec("cmd /c cd "+project+"&& git log --grep="+wordToSearch+" --date=iso-strict --name-status --stat HEAD --abbrev-commit");
@@ -35,7 +33,7 @@ public class IdCommit {
                 p.destroy();
                 
         	 }catch (Exception e) {
-            	logger.log(Level.WARNING,"Exception found");
+            	logger.log(Level.WARNING,strErr);
         	 }
          }else {
         	 try(FileWriter result = new FileWriter(outname)){
@@ -48,7 +46,7 @@ public class IdCommit {
                  p.destroy();
                  
              }catch (Exception e) {
-             	logger.log(Level.WARNING,"Exception found");
+             	logger.log(Level.WARNING,strErr);
              }
          }
          
@@ -79,7 +77,7 @@ public class IdCommit {
             p.destroy();
             
         }catch (Exception e) {
-        	logger.log(Level.WARNING,"Exception found");
+        	logger.log(Level.WARNING,strErr);
         }
         
     }
