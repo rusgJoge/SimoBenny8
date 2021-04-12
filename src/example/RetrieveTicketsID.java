@@ -15,7 +15,9 @@ import org.json.JSONArray;
 
 public class RetrieveTicketsID {
 
-
+	private RetrieveTicketsID() {
+	    throw new IllegalStateException("Utility class");
+	  }
 
 
    private static String readAll(Reader rd) throws IOException {

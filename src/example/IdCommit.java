@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class IdCommit {
 	
 	private static final Logger logger = Logger.getLogger(IdCommit.class.getName());
-	private static final String strErr = "Exception found";
+	private static final String ERRORSTR = "Exception found";
 	
 	public static void commitString(String wordToSearch, String project,String fileName, int i) throws IOException {
 		
@@ -33,7 +33,7 @@ public class IdCommit {
                 p.destroy();
                 
         	 }catch (Exception e) {
-            	logger.log(Level.WARNING,strErr);
+            	logger.log(Level.WARNING,ERRORSTR);
         	 }
          }else {
         	 try(FileWriter result = new FileWriter(outname)){
@@ -46,7 +46,7 @@ public class IdCommit {
                  p.destroy();
                  
              }catch (Exception e) {
-             	logger.log(Level.WARNING,strErr);
+             	logger.log(Level.WARNING,ERRORSTR);
              }
          }
          
@@ -77,7 +77,7 @@ public class IdCommit {
             p.destroy();
             
         }catch (Exception e) {
-        	logger.log(Level.WARNING,strErr);
+        	logger.log(Level.WARNING,ERRORSTR);
         }
         
     }
